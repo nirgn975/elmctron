@@ -10,6 +10,8 @@ TodoMVC app written in Elm and using Electron.
  * We download and install the elm packages for you, Automagically (;
  * We fire up the `Electron` app and open the `dev-tools`.
 
+**For more information read [Gizra post](http://www.gizra.com/content/elm-electron-build/).**
+
 ## Installation
 
 1. Run `npm install`.
