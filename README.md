@@ -18,7 +18,7 @@ TodoMVC app written in Elm and using Electron.
 
 ## Development
 
-1. Run `gulp`.
+1. Run `npm run gulp`.
 
 ## Build
 
