@@ -22,7 +22,7 @@ TodoMVC app written in Elm and using Electron.
 
 ## Build
 
-Not yet.
+1. Run `npm run dist`.
 
 ## License
 
