@@ -30,7 +30,7 @@
   "homepage": "http://yourAppHomePage.com",
   "build": {
     "appId": "your.id",
-    "app-category-type": "public.app-category.todo",
+    "app-category-type": "public.app-category.productivity",
     "dmg": {
       "contents": [
         {
@@ -50,10 +50,7 @@
       "iconUrl": "https://github.com/nirgn975/Elmctron"
     },
     "linux": {
-      "target": [
-        "deb",
-        "AppImage"
-      ]
+      "target": ["deb", "AppImage"]
     }
   }
 }
