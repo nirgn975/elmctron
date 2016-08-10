@@ -1,7 +1,5 @@
 # Elmctron
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Stories-of-a-Lifelong-Student/blob/master/LICENSE)
-
 TodoMVC app written in Elm and using Electron.
 
 **What you get**
@@ -28,4 +26,4 @@ Not yet.
 
 ## License
 
-ISC
+MIT
