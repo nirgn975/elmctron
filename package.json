@@ -25,6 +25,9 @@
     "gulp": "gulp",
     "gulp build": "gulp build",
     "pack": "build --dir",
+    "dist-mac": "gulp build; build --macos",
+    "dist-linux": "gulp build; build --linux",
+    "dist-win": "gulp build; build --win",
     "dist": "gulp build; build -mwl"
   },
   "description": "A todo app.",

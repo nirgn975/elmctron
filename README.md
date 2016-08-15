@@ -22,7 +22,11 @@ TodoMVC app written in Elm and using Electron.
 
 ## Build
 
-1. Run `npm run dist`.
+1. Run `npm run dist` to build for all platforms (linux, mac, and windows).
+
+ * Run `npm run dist-mac` to build just for Mac OS.
+ * Run `npm run dist-linux` to build just for Linux.
+ * Run `npm run dist-win` to build just for Windows.
 
 ## License
 
