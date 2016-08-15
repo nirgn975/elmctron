@@ -11,11 +11,11 @@ var electron    = require('electron-connect').server.create();
 gulp.task('elm-init', elm.init);
 
 /**
- * Copy html and css files to dist directory.
+ * Copy html and css files to app directory.
  */
-gulp.task("copy-assets", ['sass'], function () {
+gulp.task("copy-assets", ['sass'], function() {
   return gulp.src(["src/*.html", "src/*.css"])
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("app"))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -23,7 +23,7 @@ gulp.task("copy-assets", ['sass'], function () {
  * Handle SCSS files.
  * Convert SCSS to CSS, minify all the files and add prefix.
  */
-gulp.task('sass', function () {
+gulp.task('sass', function() {
     return gulp.src('src/style.scss')
         .pipe(sass({
             includePaths: ['css'],
@@ -31,7 +31,7 @@ gulp.task('sass', function () {
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(cssmin())
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('app'));
 });
 
 /**
@@ -40,27 +40,25 @@ gulp.task('sass', function () {
 gulp.task('elm', ['elm-init', 'copy-assets'], function(){
   return gulp.src('src/*.elm')
     .pipe(elm.make({filetype: 'js'}))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('app/'))
     .pipe(browserSync.reload({stream:true}));
-});
-
-/**
- * Bundle elm files into a single file.
- */
-gulp.task('elm-bundle', ['elm-init'], function(){
-  return gulp.src('app/*.elm')
-    .pipe(elm.bundle('bundle.js'))
-    .pipe(gulp.dest('dist/'));
 });
 
 /**
  * Watch html and scss files for changes & copy them.
  * Watch Elm files, recompile them & reload BrowserSync.
  */
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     gulp.watch(['src/*.scss', 'src/*.html'], ['copy-assets']);
     gulp.watch('src/*.elm', ['elm']);
 });
+
+/**
+ * Build the app without watch the files.
+ * This task is created for build the app before
+ * packageing it inside the electron dist apps.
+ */
+gulp.task('build', ['elm']);
 
 /**
  * Default task, running just `gulp` will compile the sass,
