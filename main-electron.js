@@ -4,7 +4,7 @@ var electron = require('electron');
 var app = electron.app;  // Module to control application life.
 var BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 
-require('electron-reload')(__dirname + '/build');
+require('electron-reload')(__dirname + '/app');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is GCed.
@@ -29,7 +29,7 @@ app.on('ready', function() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/build/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
   // Open the devtools.
   mainWindow.openDevTools();

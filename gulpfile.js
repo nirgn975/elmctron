@@ -11,11 +11,11 @@ var electron    = require('electron-connect').server.create();
 gulp.task('elm-init', elm.init);
 
 /**
- * Copy html and css files to build directory.
+ * Copy html and css files to app directory.
  */
 gulp.task("copy-assets", ['sass'], function () {
-  return gulp.src(["app/*.html", "app/*.css"])
-    .pipe(gulp.dest("build"))
+  return gulp.src(["src/*.html", "src/*.css"])
+    .pipe(gulp.dest("app"))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -24,23 +24,23 @@ gulp.task("copy-assets", ['sass'], function () {
  * Convert SCSS to CSS, minify all the files and add prefix.
  */
 gulp.task('sass', function () {
-    return gulp.src('app/style.scss')
+    return gulp.src('src/style.scss')
         .pipe(sass({
             includePaths: ['css'],
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(cssmin())
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('app'));
 });
 
 /**
  * Compile elm files to javascript.
  */
 gulp.task('elm', ['elm-init', 'copy-assets'], function(){
-  return gulp.src('app/*.elm')
+  return gulp.src('src/*.elm')
     .pipe(elm.make({filetype: 'js'}))
-    .pipe(gulp.dest('build/'))
+    .pipe(gulp.dest('app/'))
     .pipe(browserSync.reload({stream:true}));
 });
 
@@ -48,9 +48,9 @@ gulp.task('elm', ['elm-init', 'copy-assets'], function(){
  * Bundle elm files into a single file.
  */
 gulp.task('elm-bundle', ['elm-init'], function(){
-  return gulp.src('app/*.elm')
+  return gulp.src('src/*.elm')
     .pipe(elm.bundle('bundle.js'))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('app/'));
 });
 
 /**
@@ -58,8 +58,8 @@ gulp.task('elm-bundle', ['elm-init'], function(){
  * Watch Elm files, recompile them & reload BrowserSync.
  */
 gulp.task('watch', function () {
-    gulp.watch(['app/*.scss', 'app/*.html'], ['copy-assets']);
-    gulp.watch('app/*.elm', ['elm']);
+    gulp.watch(['src/*.scss', 'src/*.html'], ['copy-assets']);
+    gulp.watch('src/*.elm', ['elm']);
 });
 
 /**
