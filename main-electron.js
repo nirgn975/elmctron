@@ -28,7 +28,7 @@ app.on('ready', function() {
     height: 600
   });
 
-  // and load the index.html of the app.
+  // Load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
   // Open the devtools.
