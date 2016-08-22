@@ -6,11 +6,11 @@ TodoMVC app written in Elm and using Electron.
 
 **What you get**
 
- * You can write `SCSS` and it's compile to `css` automatically.
- * `Elm` compile automatically to `JS` in `dist` directory.
- * We watch the `html`, `SCSS`, and `Elm` files, and auto-reload when they updated.
- * We download and install the elm packages for you, Automagically (;
- * We fire up the `Electron` app and open the `dev-tools`.
+ * `SCSS` is compiled to `CSS` automatically.
+ * `Elm` is compiled to `JS` automatically.
+ * `HTML`, `SCSS`, and `Elm` are watched, trigger auto-reload when updated.
+ * Elm packages are downloaded and installed automagically.
+ * When the `Electron` app starts, the `dev-tools` show up.
 
 **For more information read [Gizra post](http://www.gizra.com/content/elm-electron-build/).**
 
@@ -27,7 +27,7 @@ TodoMVC app written in Elm and using Electron.
 1. Run `npm run dist` to build for all platforms (linux, mac, and windows).
 
  * Run `npm run dist-mac` to build just for Mac OS.
- * Run `npm run dist-linux` to build just for Linux.
+ * Run `npm run dist-linux` to build just for GNU/Linux.
  * Run `npm run dist-win` to build just for Windows.
 
 ## License
