@@ -11,7 +11,7 @@ var electron    = require('electron-connect').server.create();
 gulp.task('elm-init', elm.init);
 
 /**
- * Copy html and css files to app directory.
+ * Copy HTML and CSS files to app directory.
  */
 gulp.task("copy-assets", ['sass'], function() {
   return gulp.src(["src/*.html", "src/*.css"])
@@ -35,7 +35,7 @@ gulp.task('sass', function() {
 });
 
 /**
- * Compile elm files to javascript.
+ * Compile Elm files to JavaScript.
  */
 gulp.task('elm', ['elm-init', 'copy-assets'], function(){
   return gulp.src('src/*.elm')
@@ -45,8 +45,8 @@ gulp.task('elm', ['elm-init', 'copy-assets'], function(){
 });
 
 /**
- * Watch html and scss files for changes & copy them.
- * Watch Elm files, recompile them & reload BrowserSync.
+ * Watch HTML and SCSS files for changes and copy them.
+ * Watch Elm files, recompile them and reload BrowserSync.
  */
 gulp.task('watch', function() {
     gulp.watch(['src/*.scss', 'src/*.html'], ['copy-assets']);
@@ -54,15 +54,15 @@ gulp.task('watch', function() {
 });
 
 /**
- * Build the app without watch the files.
- * This task is created for build the app before
- * packageing it inside the electron dist apps.
+ * Build the app without watching the files.
+ * This task is created for building the app before
+ * packaging it inside the Electron dist apps.
  */
 gulp.task('build', ['elm']);
 
 /**
- * Default task, running just `gulp` will compile the sass,
- * html, and elm, launch BrowserSync & watch files in electron.
+ * Default task, running just `gulp` will compile the SCSS,
+ * HTML, and Elm, launch BrowserSync and watch files in Electron.
  */
 gulp.task('default', ['elm', 'watch'], function() {
   // Start browser process
