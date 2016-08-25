@@ -1,0 +1,15 @@
+# appveyor file
+# http://www.appveyor.com/docs/appveyor-yml
+environment:
+  matrix:
+  # node.js
+    - nodejs_version: "4"
+
+platform:
+  - x86
+  - x64
+
+# scripts that run after cloning repository
+install:
+  - npm install
+  - npm run dist
