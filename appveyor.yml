@@ -3,7 +3,7 @@
 environment:
   matrix:
   # node.js
-    - nodejs_version: "4"
+    - nodejs_version: "6"
 
 platform:
   - x86
@@ -14,5 +14,5 @@ build: off
 # scripts that run after cloning repository
 install:
   - npm install
-  - npm run gulp
+  - npm run gulp build
   # - npm run dist-win
