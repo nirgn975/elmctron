@@ -1,6 +1,6 @@
 # Elmctron
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Elmctron/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Elmctron/blob/master/LICENSE) [![Build Status](https://travis-ci.org/nirgn975/Elmctron.svg?branch=master)](https://travis-ci.org/nirgn975/Elmctron) [![Build status](https://ci.appveyor.com/api/projects/status/ouaskt8wyeummjfv/branch/master?svg=true)](https://ci.appveyor.com/project/nirgn975/elmctron/branch/master)
 
 TodoMVC app written in Elm and using Electron.
 
