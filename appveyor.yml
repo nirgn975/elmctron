@@ -14,5 +14,5 @@ build: off
 # scripts that run after cloning repository
 install:
   - npm install
-  - npm install -g gulp
-  - npm run dist-win
+  - npm run gulp
+  # - npm run dist-win
