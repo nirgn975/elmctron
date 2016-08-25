@@ -54,7 +54,10 @@
       "iconUrl": "https://github.com/nirgn975/Elmctron"
     },
     "linux": {
-      "target": ["deb", "AppImage"]
+      "target": [
+        "deb",
+        "AppImage"
+      ]
     }
   }
 }
