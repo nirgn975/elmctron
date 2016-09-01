@@ -10,7 +10,7 @@ os:
 install:
   - npm install
   # Install wine to build the Windows version.
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo dpkg --add-architecture i386; sudo add-apt-repository ppa:wine/wine-builds; sudo apt-get update; sudo apt-get install --install-recommends winehq-devel; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo dpkg --add-architecture i386; sudo add-apt-repository -y ppa:wine/wine-builds; sudo apt-get -y update; sudo apt-get install -y --install-recommends winehq-devel; fi
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run dist-linux; npm run dist-win; fi
