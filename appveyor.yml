@@ -13,7 +13,5 @@ build: off
 
 # scripts that run after cloning repository
 install:
-  - npm install
-  - npm install -g gulp
-  - gulp build
-  - npm run dist-win
+  - sh docker run --rm -ti -v ${PWD}:/project -v ${PWD##*/}-node-modules:/project/node_modules -v ~/.electron:/root/.electron electronuserland/electron-builder:wine
+  - /bin/bash -c "npm install && npm prune && npm run dist"
