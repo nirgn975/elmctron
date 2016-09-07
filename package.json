@@ -8,6 +8,7 @@
   "description": "A todo app.",
   "homepage": "http://yourAppHomePage.com",
   "devDependencies": {
+    "appdmg": "^0.4.5",
     "browser-sync": "^2.13.0",
     "electron-builder": "^5.22.1",
     "electron-connect": "^0.4.2",
