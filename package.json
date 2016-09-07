@@ -23,6 +23,9 @@
   "dependencies": {
     "electron-reload": "^1.0.1"
   },
+  "optionalDependencies": {
+    "appdmg": "^0.4.5"
+  },
   "scripts": {
     "gulp": "gulp",
     "gulp build": "gulp build",
