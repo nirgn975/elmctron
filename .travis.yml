@@ -1,5 +1,5 @@
-sudo: true
-
+sudo: required
+dist: trusty
 language: node_js
 node_js: "6"
 
@@ -9,9 +9,22 @@ os:
 
 install:
   - npm install
-  # Install wine to build the Windows version.
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo dpkg --add-architecture i386; sudo add-apt-repository -y ppa:wine/wine-builds; sudo apt-get -y update; sudo apt-get install -y --install-recommends winehq-devel; fi
+
+  # Install Wine and Mono to build the Windows version.
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+    sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils;
+    sudo add-apt-repository ppa:ubuntu-wine/ppa -y;
+    sudo apt-get update;
+    sudo apt-get install --no-install-recommends -y wine1.8;
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF;
+    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list;
+    sudo apt-get update;
+    sudo apt-get install --no-install-recommends -y mono-devel ca-certificates-mono
+  fi
+
+  # Install Wine for Mac.
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install wine --without-x11; brew install mono; brew install gnu-tar libicns graphicsmagick xz; fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run dist-linux; npm run dist-win; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-mac; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run dist; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist; fi
