@@ -6,12 +6,6 @@ os:
   - linux
   - osx
 
-addons:
-  apt:
-    packages:
-    - build-essential
-    - g++-4.8
-
 install:
   - npm install
   # Install Wine and Mono to build the Windows version.
