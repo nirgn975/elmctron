@@ -6,7 +6,11 @@ os:
   - linux
   - osx
 
-osx_image: xcode7.3
+addons:
+  apt:
+    packages:
+    - build-essential
+    - g++-4.8
 
 install:
   - npm install
