@@ -2,9 +2,11 @@ sudo: required
 language: node_js
 node_js: "6"
 
-os:
-  - linux
-  - osx
+matrix:
+  include:
+  - os: linux
+  - os: osx
+    osx_image: xcode8
 
 install:
   - npm install
