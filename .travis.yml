@@ -6,6 +6,8 @@ os:
   - linux
   - osx
 
+osx_image: xcode7.3
+
 install:
   - npm install
   # Install Wine and Mono to build the Windows version.
