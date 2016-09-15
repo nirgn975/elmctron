@@ -18,4 +18,10 @@ install:
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run dist-linux; npm run dist-win; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist; fi
+
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wine --version; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mono --version; fi
+  # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-mac; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-linux; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-win; fi
