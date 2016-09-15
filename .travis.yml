@@ -5,7 +5,7 @@ node_js: "6"
 
 matrix:
   include:
-  - dist: trusty
+  - os: linux
   - os: osx
     osx_image: xcode8
 
