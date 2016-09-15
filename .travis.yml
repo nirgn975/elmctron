@@ -1,14 +1,13 @@
 sudo: required
 language: node_js
 node_js: "6"
+dist: trusty
 
 matrix:
   include:
   - os: linux
   - os: osx
-
-dist: trusty
-osx_image: xcode8
+    osx_image: xcode8
 
 install:
   - npm install
