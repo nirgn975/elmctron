@@ -1,11 +1,11 @@
 sudo: required
 language: node_js
 node_js: "6"
+dist: trusty
 
 matrix:
   include:
-  # - os: linux
-  - dist: trusty
+  - os: linux
   - os: osx
     osx_image: xcode8
 
