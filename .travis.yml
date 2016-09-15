@@ -4,8 +4,8 @@ node_js: "6"
 
 matrix:
   include:
-  - os: linux
-    dist: trusty
+  # - os: linux
+  - dist: trusty
   - os: osx
     osx_image: xcode8
 
@@ -26,9 +26,9 @@ install:
   # Install Wine for Mac.
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   brew update;
+  brew install gnu-tar libicns graphicsmagick xz;
   brew install wine --without-x11;
   brew install mono;
-  brew install gnu-tar libicns graphicsmagick xz;
   fi
 
 script:
