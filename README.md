@@ -24,6 +24,8 @@ TodoMVC app written in Elm and using Electron.
 
 ## Build
 
+If you want to build the app on our local machine, you'll need to [install some packages](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build).
+
 1. Run `npm run dist` to build for all platforms (linux, mac, and windows).
 
  * Run `npm run dist-mac` to build just for Mac OS.

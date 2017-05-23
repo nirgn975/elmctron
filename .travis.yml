@@ -1,0 +1,37 @@
+sudo: required
+language: node_js
+node_js: "6"
+
+
+matrix:
+  include:
+  - os: osx
+    osx_image: xcode8
+
+addons:
+  apt:
+    packages:
+      - xvfb
+
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
+install:
+  - npm install
+  # Install Wine and Mono to build the Linux version.
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils; sudo add-apt-repository ppa:ubuntu-wine/ppa -y; sudo apt-get update; sudo apt-get install --no-install-recommends -y wine1.8; sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF; echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list; sudo apt-get update; sudo apt-get install --no-install-recommends -y mono-devel ca-certificates-mono; fi
+
+  # Install Wine for Mac.
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install gnu-tar graphicsmagick xz; brew install wine --without-x11; brew install mono; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install fontconfig; fi
+
+script:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run dist-linux; npm run dist-win; fi
+
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wine --version; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mono --version; fi
+  # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-mac; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-linux; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist-win; fi
