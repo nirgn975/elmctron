@@ -1,6 +1,6 @@
 # Elmctron
 
-[![license](https://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/nirgn975/Elmctron/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-lightgrey.svg)](https://www.paypal.me/nirgn/2)
+[![license][license-image]][license-url] [![Donate][donate-image]][donate-url]
 
 TodoMVC app written in Elm and using Electron.
 
@@ -33,3 +33,8 @@ TodoMVC app written in Elm and using Electron.
 ## License
 
 ISC
+
+[license-image]: https://img.shields.io/badge/license-ISC-blue.svg
+[license-url]: https://github.com/nirgn975/Elmctron/blob/master/LICENSE
+[donate-image]: https://img.shields.io/badge/PayPal-Donate-lightgrey.svg
+[donate-url]: https://www.paypal.me/nirgn/2
