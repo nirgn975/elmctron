@@ -39,13 +39,13 @@ gulp.task('sass', function() {
  */
 gulp.task('elm', ['elm-init', 'copy-assets'], function(){
   return gulp.src('src/*.elm')
-    .pipe(elm.make({filetype: 'js'}))
+    .pipe(elm.bundle('app.js'))
     .pipe(gulp.dest('app/'))
     .pipe(browserSync.reload({stream:true}));
 });
 
 /**
- * Watch HTML and SCSS files for changes and copy them.
+ * Watch HTML and SCSS files for changes and copy them. In case you have any other assets (i.e. png), put an extra 'src/*.png' or similar to the 'gulp-watch' parameters
  * Watch Elm files, recompile them and reload BrowserSync.
  */
 gulp.task('watch', function() {
